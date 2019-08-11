@@ -1,5 +1,14 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.shortcuts import (
+    render,
+    redirect
+  )
+
+from django.contrib.auth.forms import (
+    UserCreationForm,
+    AuthenticationForm
+  )
+
+from django.contrib.auth import login
 
 
 def signup_view(request):
@@ -8,9 +17,10 @@ def signup_view(request):
     form = UserCreationForm(request.POST)
 
     if form.is_valid():
-      form.save()
+      user = form.save()
 
       # log user in
+      login(request, user)
       return redirect('articles:list')
 
 
@@ -30,6 +40,8 @@ def login_view(request):
     if form.is_valid():
 
       # log user in
+      user = form.get_user()
+      login(request, user)
       return redirect('articles:list')
 
 
