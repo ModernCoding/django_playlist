@@ -45,6 +45,10 @@ def login_view(request):
       # log user in
       user = form.get_user()
       login(request, user)
+
+      if 'next' in request.POST:
+        return redirect(request.POST.get('next'))
+
       return redirect('articles:list')
 
 
