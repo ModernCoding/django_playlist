@@ -22,16 +22,44 @@
 
       <nav>
         <ul>
-          <li>
-            <form
-              class="logout-link"
-              action="{% url 'accounts:logout' %}"
-              method="post"
-            >
-              {% csrf_token %}
-              <button type="submit">Log out</button>
-            </form>
-          </li>
+          
+          {% if user.is_authenticated %}
+          
+            <li>
+              <form
+                class="logout-link"
+                action="{% url 'accounts:logout' %}"
+                method="post"
+              >
+                {% csrf_token %}
+                <button type="submit">Log out</button>
+              </form>
+            </li>
+
+            <li>
+              <a href="{% url 'articles:create' %}" class="highlight">
+                <button type="button">Create a new article</button>
+              </a>
+            </li>
+
+
+          {% else %}
+
+            <li>
+              <a href="{% url 'accounts:login' %}">
+                <button type="button">Log in</button>
+              </a>
+            </li>
+
+            <li>
+              <a href="{% url 'accounts:signup' %}">
+                <button type="button">Sign up</button>
+              </a>
+            </li>
+
+
+          {% endif %}
+
         </ul>    
       </nav>
       
