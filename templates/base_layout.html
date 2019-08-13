@@ -36,7 +36,7 @@
 
             <li>
               <a href="{% url 'articles:create' %}" class="highlight">
-                <button type="button">Create a new article</button>
+                Create a new article
               </a>
             </li>
 
@@ -44,15 +44,11 @@
           {% else %}
 
             <li>
-              <a href="{% url 'accounts:login' %}">
-                <button type="button">Log in</button>
-              </a>
+              <a href="{% url 'accounts:login' %}">Log in</a>
             </li>
 
             <li>
-              <a href="{% url 'accounts:signup' %}">
-                <button type="button">Sign up</button>
-              </a>
+              <a href="{% url 'accounts:signup' %}">Sign up</a>
             </li>
 
 
