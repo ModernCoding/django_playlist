@@ -12,13 +12,11 @@
 
   <body>  
 
-    <div class="wrapper">
+    <header class="wrapper">
     
-      <h1>
-        <a href="{% url 'home' %}">
-          <img src="{% static 'logo.png' %}">
-        </a>
-      </h1>
+      <a href="{% url 'home' %}">
+        <img src="{% static 'logo.png' %}">
+      </a>
 
       <nav>
         <ul>
@@ -62,10 +60,13 @@
 
         </ul>    
       </nav>
-      
+
+    </header>
+    
+
+    <div class="wrapper">
       {% block content %}
       {% endblock %}
-    
     </div>
 
   </body>
